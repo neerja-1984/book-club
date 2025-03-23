@@ -22,6 +22,6 @@ body:
     id: book-stickiness
     attributes:
       label: Stuck to Your Soul
-      placeholder: What made this book impossible to forget? Give us the deets!
+      placeholder: What made this book impossible to forget? Give us the deets! 🌚
     validations:
       required: true
