@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.png' />
+  <title>Book Lovers Spot</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background-color: #fff3cd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    form {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      max-width: 450px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      color: #d9534f;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 12px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    textarea {
+      height: 80px;
+    }
+    button {
+      background-color: #d9534f;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #c9302c;
+    }
+  </style>
+</head>
+<body>
+  <form id="suggestion-form">
+    <h1>📖 Drop Your Book-ish Bomb! </h1>
+    <p>(We accept everything from <b>Wattpad drama ... <i>*ufffff eyes roll*</i></b> to <b>mystical ancient scrolls</b> to <b>trendy and of the shelf tech stuff</b>)</p>
+
+    <label for="title">✨ Book Title:</label>
+    <input type="text" id="title" placeholder="The book that stole your heart..." required />
+
+    <label for="source">🕵️‍♂️ Where'd You Find It?</label>
+    <input type="text" id="source" placeholder="Spill your sources" required />
+
+    <label for="reason">💡 What Made It Stick?</label>
+    <input type="text" id="reason" placeholder="Did it break you? Fix you? or left you guessing what's up" required />
+
+    <button type="submit">🚀 Submit Suggestion</button>
+  </form>
+
+  <script>
+    document.getElementById('suggestion-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const title = encodeURIComponent(document.getElementById('title').value);
+      const source = encodeURIComponent(document.getElementById('source').value);
+      const reason = encodeURIComponent(document.getElementById('reason').value);
+
+      const githubUsername = process.env.GITHUB_USERNAME;
+      const repoName = process.env.REPO_NAME;
+      const issueURL = `https://github.com/${githubUsername}/${repoName}/issues/new?title=📖%20Book%20Suggestion:%20${title}&body=**📚%20Title:**%20${title}%0A**🕵️‍♂️%20Source:**%20${source}%0A**💡%20Why%20I%20Love%20It:**%20${reason}`;
+
+      window.location.href = issueURL;
+    });
+  </script>
+</body>
+</html>
