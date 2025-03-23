@@ -1,0 +1,27 @@
+name: 📖 Spill the Book Tea ☕️
+labels: [suggestion]
+description: Got a book that shook your world? Got Characters that have have stuck with you ( eyes rolling ) ? Got Blogs that have enlightened you ? Drop them here ! 🤜🤛
+body:
+  - type: input
+    id: book-title
+    attributes:
+      label: Book Title
+      placeholder: Hit me with that title! 📚
+    validations:
+      required: true
+
+  - type: input
+    id: book-source
+    attributes:
+      label: Spill the Source
+      placeholder: Wattpad 😏 ? Medium 🥸? An old dusty book from Grandma’s attic? 👻
+    validations:
+      required: true
+
+  - type: textarea
+    id: book-stickiness
+    attributes:
+      label: Stuck to Your Soul
+      placeholder: What made this book impossible to forget? Give us the deets!
+    validations:
+      required: true
